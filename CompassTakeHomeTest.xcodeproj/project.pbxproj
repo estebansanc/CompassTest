@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9CEE5EC2BF41A6700543CCF /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5EB2BF41A6700543CCF /* UserDefaultsHelper.swift */; };
 		D9F266DB2BF2E83300144005 /* CompassTakeHomeTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266DA2BF2E83300144005 /* CompassTakeHomeTestApp.swift */; };
 		D9F266DD2BF2E83300144005 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266DC2BF2E83300144005 /* MainView.swift */; };
 		D9F266DF2BF2E83500144005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F266DE2BF2E83500144005 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9CEE5EB2BF41A6700543CCF /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		D9F266D72BF2E83300144005 /* CompassTakeHomeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompassTakeHomeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F266DA2BF2E83300144005 /* CompassTakeHomeTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassTakeHomeTestApp.swift; sourceTree = "<group>"; };
 		D9F266DC2BF2E83300144005 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				D9F267122BF2EDC900144005 /* Constants.swift */,
 				D9F2670E2BF2EDBF00144005 /* HttpClient.swift */,
 				D9F2670F2BF2EDBF00144005 /* LogHelper.swift */,
+				D9CEE5EB2BF41A6700543CCF /* UserDefaultsHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9CEE5EC2BF41A6700543CCF /* UserDefaultsHelper.swift in Sources */,
 				D9F267192BF31E4600144005 /* WordCounterUseCase.swift in Sources */,
 				D9F266DD2BF2E83300144005 /* MainView.swift in Sources */,
 				D9F267112BF2EDBF00144005 /* LogHelper.swift in Sources */,

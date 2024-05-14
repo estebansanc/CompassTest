@@ -14,30 +14,48 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section("First request result:") {
-                    Text("\(viewModel.result1)")
-                }
-                
-                Section("Second request result:") {
-                    Text("\(viewModel.result2)")
+            VStack {
+                Form {
+                    Section("Every 10th characters:") {
+                        if let characters = viewModel.everyThenCharacter {
+                            ForEach(characters, id: \.self) {
+                                Text("\($0)")
+                            }
+                        } else {
+                            ContentUnavailableView("Please run requests to see results...", systemImage: "bolt.fill")
+                        }
+                    }
+                    
+                    Section("Words count:") {
+                        if let wordsCount = viewModel.wordsCount?.sorted(by: { $0.key < $1.key }) {
+                            ForEach(wordsCount, id: \.key) { word, count in
+                                HStack {
+                                    Text(word)
+                                    Spacer()
+                                    Text("\(count)")
+                                }
+                            }
+                        } else {
+                            ContentUnavailableView("Please run requests to see results...", systemImage: "bolt.fill")
+                        }
+                    }
                 }
                 
                 Button("Run all requests", systemImage: "bolt.fill") {
-                    Task {
-                        await viewModel.runAllRequests()
-                    }
+                    viewModel.fetchEvery10thCharacter()
+                    viewModel.fetchWordCounts()
                 }
                 .frame(maxWidth: .infinity)
+                .frame(height: 56)
             }
-            .onChange(of: viewModel.errorPrompt) { oldValue, newValue in
-                showingActionSheet = newValue != oldValue
-            }
-            .alert("An error has ocurred...", isPresented: $showingActionSheet) {
-                Button("Continue") { showingActionSheet = false }
-            } message: {
-                Text(viewModel.errorPrompt)
-            }
+//            .onChange(of: viewModel.errorPrompt) { oldValue, newValue in
+//                showingActionSheet = newValue != oldValue
+//            }
+//            .alert("An error has ocurred...", isPresented: $showingActionSheet) {
+//                Button("Continue") { showingActionSheet = false }
+//            } message: {
+//                Text(viewModel.errorPrompt)
+//            }
             .navigationTitle("Compass Test")
         }
     }
@@ -45,4 +63,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(MainViewModel())
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol WordCounterUseCaseProtocol {
-    func getWordCounter() async -> [String: Int]
+    func getWordCounts() async -> [String: Int]
 }
 
 class WordCounterUseCase: WordCounterUseCaseProtocol {
@@ -19,15 +19,21 @@ class WordCounterUseCase: WordCounterUseCaseProtocol {
         self.repository = repository
     }
     
-    func getWordCounter() async -> [String: Int] {
+    func getWordCounts() async -> [String: Int] {
         let response = await repository.getAboutInformation()
-        let words = response.components(separatedBy: ", ")
-        var wordCounter: [String: Int] = [:]
+        
+        let words: [String] = response
+            .components(separatedBy: CharacterSet.whitespacesAndNewlines)
+            .map { $0.lowercased() }
+        
+        var wordCounts: [String: Int] = [:]
         
         for word in words {
-            wordCounter[word] = 1
+            if !word.isEmpty {
+                wordCounts[word, default: 0] += 1
+            }
         }
         
-        return wordCounter
+        return wordCounts
     }
 }

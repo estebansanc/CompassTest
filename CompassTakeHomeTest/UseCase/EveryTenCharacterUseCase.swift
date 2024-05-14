@@ -21,6 +21,14 @@ class EveryTenCharacterUseCase: EveryTenCharacterUseCaseProtocol {
     
     func getEveryTenCharacter() async -> [String] {
         let response = await repository.getAboutInformation()
-        return response.components(separatedBy: ", ")
+        
+        var result: [String] = []
+        let characters = Array(response)
+        
+        for index in stride(from: 10, to: characters.count, by: 10) {
+            result.append("\(characters[index])")
+        }
+        
+        return result
     }
 }
