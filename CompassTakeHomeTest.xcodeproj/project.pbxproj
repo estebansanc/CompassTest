@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D9CEE5EC2BF41A6700543CCF /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5EB2BF41A6700543CCF /* UserDefaultsHelper.swift */; };
+		D9CEE5F12BF482C700543CCF /* MainViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F02BF482C700543CCF /* MainViewModelTest.swift */; };
+		D9CEE5F32BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F22BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift */; };
+		D9CEE5F52BF4844300543CCF /* WordCounterUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F42BF4844300543CCF /* WordCounterUseCaseTest.swift */; };
+		D9CEE5F72BF4846200543CCF /* AboutRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F62BF4846200543CCF /* AboutRepositoryTest.swift */; };
 		D9F266DB2BF2E83300144005 /* CompassTakeHomeTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266DA2BF2E83300144005 /* CompassTakeHomeTestApp.swift */; };
 		D9F266DD2BF2E83300144005 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266DC2BF2E83300144005 /* MainView.swift */; };
 		D9F266DF2BF2E83500144005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F266DE2BF2E83500144005 /* Assets.xcassets */; };
 		D9F266E22BF2E83500144005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F266E12BF2E83500144005 /* Preview Assets.xcassets */; };
-		D9F266EC2BF2E83500144005 /* CompassTakeHomeTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266EB2BF2E83500144005 /* CompassTakeHomeTestTests.swift */; };
 		D9F266F62BF2E83500144005 /* CompassTakeHomeTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266F52BF2E83500144005 /* CompassTakeHomeTestUITests.swift */; };
 		D9F266F82BF2E83500144005 /* CompassTakeHomeTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266F72BF2E83500144005 /* CompassTakeHomeTestUITestsLaunchTests.swift */; };
 		D9F267082BF2ECC000144005 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F267072BF2ECC000144005 /* MainViewModel.swift */; };
@@ -43,13 +46,16 @@
 
 /* Begin PBXFileReference section */
 		D9CEE5EB2BF41A6700543CCF /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		D9CEE5F02BF482C700543CCF /* MainViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTest.swift; sourceTree = "<group>"; };
+		D9CEE5F22BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryTenCharacterUseCaseTest.swift; sourceTree = "<group>"; };
+		D9CEE5F42BF4844300543CCF /* WordCounterUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCounterUseCaseTest.swift; sourceTree = "<group>"; };
+		D9CEE5F62BF4846200543CCF /* AboutRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutRepositoryTest.swift; sourceTree = "<group>"; };
 		D9F266D72BF2E83300144005 /* CompassTakeHomeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompassTakeHomeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F266DA2BF2E83300144005 /* CompassTakeHomeTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassTakeHomeTestApp.swift; sourceTree = "<group>"; };
 		D9F266DC2BF2E83300144005 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D9F266DE2BF2E83500144005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9F266E12BF2E83500144005 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9F266E72BF2E83500144005 /* CompassTakeHomeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompassTakeHomeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9F266EB2BF2E83500144005 /* CompassTakeHomeTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassTakeHomeTestTests.swift; sourceTree = "<group>"; };
 		D9F266F12BF2E83500144005 /* CompassTakeHomeTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompassTakeHomeTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F266F52BF2E83500144005 /* CompassTakeHomeTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassTakeHomeTestUITests.swift; sourceTree = "<group>"; };
 		D9F266F72BF2E83500144005 /* CompassTakeHomeTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassTakeHomeTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -87,6 +93,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9CEE5ED2BF4824A00543CCF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEE5F02BF482C700543CCF /* MainViewModelTest.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D9CEE5EE2BF4825000543CCF /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEE5F22BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift */,
+				D9CEE5F42BF4844300543CCF /* WordCounterUseCaseTest.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		D9CEE5EF2BF4825500543CCF /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEE5F62BF4846200543CCF /* AboutRepositoryTest.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		D9F266CE2BF2E83300144005 = {
 			isa = PBXGroup;
 			children = (
@@ -133,7 +164,9 @@
 		D9F266EA2BF2E83500144005 /* CompassTakeHomeTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9F266EB2BF2E83500144005 /* CompassTakeHomeTestTests.swift */,
+				D9CEE5EF2BF4825500543CCF /* Repository */,
+				D9CEE5EE2BF4825000543CCF /* UseCase */,
+				D9CEE5ED2BF4824A00543CCF /* ViewModel */,
 			);
 			path = CompassTakeHomeTestTests;
 			sourceTree = "<group>";
@@ -262,6 +295,7 @@
 					};
 					D9F266E62BF2E83500144005 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1540;
 						TestTargetID = D9F266D62BF2E83300144005;
 					};
 					D9F266F02BF2E83500144005 = {
@@ -338,7 +372,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F266EC2BF2E83500144005 /* CompassTakeHomeTestTests.swift in Sources */,
+				D9CEE5F52BF4844300543CCF /* WordCounterUseCaseTest.swift in Sources */,
+				D9CEE5F12BF482C700543CCF /* MainViewModelTest.swift in Sources */,
+				D9CEE5F32BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift in Sources */,
+				D9CEE5F72BF4846200543CCF /* AboutRepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +586,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z2P2MZ5T27;
@@ -558,6 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.snchz.CompassTakeHomeTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CompassTakeHomeTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CompassTakeHomeTest";
@@ -569,6 +608,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z2P2MZ5T27;

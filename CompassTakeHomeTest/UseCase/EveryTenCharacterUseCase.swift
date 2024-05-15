@@ -32,10 +32,10 @@ class EveryTenCharacterUseCase: EveryTenCharacterUseCaseProtocol {
                 var result: [CharacterWithIndex] = []
                 let characters = Array(response)
                 
-                for index in stride(from: 10, to: characters.count, by: 10) {
-                    result.append(CharacterWithIndex(id: index,
+                for index in stride(from: 9, to: characters.count, by: 10) {
+                    result.append(CharacterWithIndex(id: index + 1,
                                                      character: characters[index],
-                                                     indexText: "\(index)th"))
+                                                     indexText: "\(index + 1)th"))
                 }
                 return result
             }
