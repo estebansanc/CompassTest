@@ -97,7 +97,7 @@ class WordCounterUseCaseMock: WordCounterUseCaseProtocol {
 
 class EveryTenCharacterUseCaseFailureMock: EveryTenCharacterUseCaseProtocol {
     func getEveryTenCharacter() -> AnyPublisher<[CharacterWithIndex], Error> {
-        return Fail(error: HttpError.invalidURL)
+        return Fail(error: URLError(.badURL))
             .eraseToAnyPublisher()
     }
 }

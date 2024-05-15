@@ -23,7 +23,7 @@ class AboutRepository: AboutRepositoryProtocol {
                 .eraseToAnyPublisher()
         } else {
             guard let url = URL(string: Constants.baseURL) else {
-                return Fail(error: HttpError.invalidURL)
+                return Fail(error: URLError(.badURL))
                     .eraseToAnyPublisher()
             }
             

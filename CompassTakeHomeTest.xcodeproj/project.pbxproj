@@ -12,12 +12,12 @@
 		D9CEE5F32BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F22BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift */; };
 		D9CEE5F52BF4844300543CCF /* WordCounterUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F42BF4844300543CCF /* WordCounterUseCaseTest.swift */; };
 		D9CEE5F72BF4846200543CCF /* AboutRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5F62BF4846200543CCF /* AboutRepositoryTest.swift */; };
+		D9CEE5FB2BF48D1900543CCF /* HelpCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CEE5FA2BF48D1900543CCF /* HelpCenterView.swift */; };
 		D9F266DB2BF2E83300144005 /* CompassTakeHomeTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266DA2BF2E83300144005 /* CompassTakeHomeTestApp.swift */; };
 		D9F266DD2BF2E83300144005 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F266DC2BF2E83300144005 /* MainView.swift */; };
 		D9F266DF2BF2E83500144005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F266DE2BF2E83500144005 /* Assets.xcassets */; };
 		D9F266E22BF2E83500144005 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F266E12BF2E83500144005 /* Preview Assets.xcassets */; };
 		D9F267082BF2ECC000144005 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F267072BF2ECC000144005 /* MainViewModel.swift */; };
-		D9F267102BF2EDBF00144005 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F2670E2BF2EDBF00144005 /* HttpError.swift */; };
 		D9F267112BF2EDBF00144005 /* LogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F2670F2BF2EDBF00144005 /* LogHelper.swift */; };
 		D9F267132BF2EDC900144005 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F267122BF2EDC900144005 /* Constants.swift */; };
 		D9F267172BF31E3800144005 /* EveryTenCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F267162BF31E3800144005 /* EveryTenCharacterUseCase.swift */; };
@@ -41,6 +41,7 @@
 		D9CEE5F22BF483BB00543CCF /* EveryTenCharacterUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryTenCharacterUseCaseTest.swift; sourceTree = "<group>"; };
 		D9CEE5F42BF4844300543CCF /* WordCounterUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCounterUseCaseTest.swift; sourceTree = "<group>"; };
 		D9CEE5F62BF4846200543CCF /* AboutRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutRepositoryTest.swift; sourceTree = "<group>"; };
+		D9CEE5FA2BF48D1900543CCF /* HelpCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterView.swift; sourceTree = "<group>"; };
 		D9F266D72BF2E83300144005 /* CompassTakeHomeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompassTakeHomeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F266DA2BF2E83300144005 /* CompassTakeHomeTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassTakeHomeTestApp.swift; sourceTree = "<group>"; };
 		D9F266DC2BF2E83300144005 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		D9F266E12BF2E83500144005 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9F266E72BF2E83500144005 /* CompassTakeHomeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompassTakeHomeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F267072BF2ECC000144005 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		D9F2670E2BF2EDBF00144005 /* HttpError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		D9F2670F2BF2EDBF00144005 /* LogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
 		D9F267122BF2EDC900144005 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D9F267162BF31E3800144005 /* EveryTenCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveryTenCharacterUseCase.swift; sourceTree = "<group>"; };
@@ -154,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				D9F266DC2BF2E83300144005 /* MainView.swift */,
+				D9CEE5FA2BF48D1900543CCF /* HelpCenterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				D9F267122BF2EDC900144005 /* Constants.swift */,
-				D9F2670E2BF2EDBF00144005 /* HttpError.swift */,
 				D9F2670F2BF2EDBF00144005 /* LogHelper.swift */,
 				D9CEE5EB2BF41A6700543CCF /* UserDefaultsHelper.swift */,
 			);
@@ -297,11 +297,11 @@
 			files = (
 				D9CEE5EC2BF41A6700543CCF /* UserDefaultsHelper.swift in Sources */,
 				D9F267192BF31E4600144005 /* WordCounterUseCase.swift in Sources */,
+				D9CEE5FB2BF48D1900543CCF /* HelpCenterView.swift in Sources */,
 				D9F266DD2BF2E83300144005 /* MainView.swift in Sources */,
 				D9F267112BF2EDBF00144005 /* LogHelper.swift in Sources */,
 				D9F2671B2BF31E5400144005 /* AboutRepository.swift in Sources */,
 				D9F266DB2BF2E83300144005 /* CompassTakeHomeTestApp.swift in Sources */,
-				D9F267102BF2EDBF00144005 /* HttpError.swift in Sources */,
 				D9F267172BF31E3800144005 /* EveryTenCharacterUseCase.swift in Sources */,
 				D9F267082BF2ECC000144005 /* MainViewModel.swift in Sources */,
 				D9F267132BF2EDC900144005 /* Constants.swift in Sources */,

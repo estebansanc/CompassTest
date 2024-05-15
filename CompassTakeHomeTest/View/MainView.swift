@@ -61,6 +61,13 @@ struct MainView: View {
                 .background(.ultraThinMaterial)
                 .disabled(viewModel.isLoading)
             }
+            .toolbar {
+                NavigationLink {
+                    HelpCenterView()
+                } label: {
+                    Button("Help center", systemImage: "questionmark.circle") { }
+                }
+            }
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("An error has occurred..."), 
                       message: Text(viewModel.errorMessage ?? "Unknown error"),
@@ -110,25 +117,48 @@ struct MainView: View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: [GridItem(.adaptive(minimum: 90))], spacing: 16) {
                 ForEach(viewModel.wordCounts.sorted(by: { $0.key < $1.key }), id: \.key) { word, count in
-                    VStack {
-                        Text(word)
+                    NavigationLink {
+                        VStack {
+                            Text(word)
+                                .lineLimit(nil)
+                                .padding()
+                                .background(.thinMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                            
+                            Text("Count: \(count)")
+                                .fontWeight(.bold)
+                        }
+                        .padding()
+                        .navigationTitle("Word details")
                         
-                        Rectangle()
-                            .frame(height: 1)
-                            .frame(maxWidth: .infinity)
-                            .background(.regularMaterial)
-                        
-                        Text("Count: \(count)")
-                            .fontWeight(.bold)
+                    } label: {
+                        VStack {
+                            Text(word)
+                                .frame(maxWidth: 200)
+                                .lineLimit(1)
+                            
+                            Rectangle()
+                                .frame(height: 1)
+                                .frame(maxWidth: .infinity)
+                                .background(.regularMaterial)
+                            
+                            HStack(spacing: 16) {
+                                Text("Count: \(count)")
+                                    .fontWeight(.bold)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        .font(.caption)
+                        .padding()
+                        .background(.thinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
                     }
-                    .font(.caption)
-                    .padding()
-                    .background(.thinMaterial)
-                    .clipShape(Capsule())
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }
-        .frame(height: 200)
+        .frame(height: 300)
         .safeAreaPadding()
     }
 }
