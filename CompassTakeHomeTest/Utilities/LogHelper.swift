@@ -8,7 +8,7 @@
 import Foundation
 
 class LogHelper {
-    static func log<T: Codable>(_ body: T, url: URL, httpMethod: HttpMethod) {
+    static func log<T: Codable>(_ body: T, url: URL) {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         
@@ -17,9 +17,9 @@ class LogHelper {
             
             if let jsonString = String(data: jsonData, encoding: .utf8) {
                 print("=================== B E G I N ===================")
-                print("Begin of request -> \(httpMethod.rawValue) -> \(url.absoluteString) \n")
+                print("Begin of request -> \(url.absoluteString) \n")
                 print(jsonString)
-                print("\nEnd of request -> \(httpMethod.rawValue) -> \(url.absoluteString)")
+                print("\nEnd of request -> \(url.absoluteString)")
                 print("===================== E N D =====================")
             } else {
                 print("Failed to convert JSON data to string.")
@@ -29,15 +29,15 @@ class LogHelper {
         }
     }
     
-    static func log(_ data: Data, url: URL, httpMethod: HttpMethod) {
+    static func log(_ data: Data, url: URL) {
         do {
             let json = try JSONSerialization.jsonObject(with: data, options: [])
             let prettyPrintedData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
             if let prettyPrintedString = String(data: prettyPrintedData, encoding: .utf8) {
                 print("=================== B E G I N ===================")
-                print("Begin of response -> \(httpMethod.rawValue) -> \(url.absoluteString) \n")
+                print("Begin of response -> \(url.absoluteString) \n")
                 print(prettyPrintedString)
-                print("\nEnd of response -> \(httpMethod.rawValue) -> \(url.absoluteString)")
+                print("\nEnd of response -> \(url.absoluteString)")
                 print("===================== E N D =====================")
             } else {
                 print("Failed to convert data to UTF-8 string")

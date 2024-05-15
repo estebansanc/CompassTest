@@ -6,23 +6,35 @@
 //
 
 import Foundation
+import Combine
 
 protocol AboutRepositoryProtocol {
-    func getAboutInformation() async -> String
+    func getAboutInformation() -> AnyPublisher<String, Error>
 }
 
 class AboutRepository: AboutRepositoryProtocol {
     
     init() {}
     
-    func getAboutInformation() async -> String {
+    func getAboutInformation() -> AnyPublisher<String, Error> {
         if let response = UserDefaultsHelper.getAboutResponse() {
-            return response
+            return Just(response)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
         } else {
-            let url: String = Constants.baseURL
-            let response: String = try! await HttpClient.shared.fetch(urlString: url)
-            UserDefaultsHelper.saveAboutResponse(response)
-            return response
+            guard let url = URL(string: Constants.baseURL) else {
+                return Fail(error: HttpError.invalidURL)
+                    .eraseToAnyPublisher()
+            }
+            
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .map { String(data: $0.data, encoding: .utf8) ?? "" }
+                .handleEvents(receiveOutput: { response in
+                    UserDefaultsHelper.saveAboutResponse(response)
+                    LogHelper.log(response, url: url)
+                })
+                .mapError { $0 as Error }
+                .eraseToAnyPublisher()
         }
     }
 }

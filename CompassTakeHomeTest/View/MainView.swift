@@ -9,55 +9,127 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject private var viewModel: MainViewModel
-    
-    @State private var showingActionSheet = false
+    @State private var showAlert = false
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Form {
-                    Section("Every 10th characters:") {
-                        if let characters = viewModel.everyThenCharacter {
-                            ForEach(characters, id: \.self) {
-                                Text("\($0)")
-                            }
+            ZStack(alignment: .bottom) {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text("Every 10th characters:")
+                            .font(.headline)
+                            .padding(.horizontal)
+                        
+                        if !viewModel.every10thCharacter.isEmpty {
+                            charactersView
                         } else {
-                            ContentUnavailableView("Please run requests to see results...", systemImage: "bolt.fill")
+                            emptyContentView
                         }
                     }
                     
-                    Section("Words count:") {
-                        if let wordsCount = viewModel.wordsCount?.sorted(by: { $0.key < $1.key }) {
-                            ForEach(wordsCount, id: \.key) { word, count in
-                                HStack {
-                                    Text(word)
-                                    Spacer()
-                                    Text("\(count)")
-                                }
-                            }
+                    Divider()
+                        .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Words count:")
+                            .font(.headline)
+                            .padding(.horizontal)
+                        
+                        if !viewModel.wordCounts.isEmpty {
+                            wordsView
                         } else {
-                            ContentUnavailableView("Please run requests to see results...", systemImage: "bolt.fill")
+                            emptyContentView
                         }
                     }
                 }
+                .safeAreaPadding(.top)
+                .safeAreaPadding(.bottom, 80)
+                .scrollIndicators(.hidden)
                 
-                Button("Run all requests", systemImage: "bolt.fill") {
-                    viewModel.fetchEvery10thCharacter()
-                    viewModel.fetchWordCounts()
+                Button {
+                    viewModel.runAllRequest()
+                } label: {
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                    } else {
+                        Label("Run all requests", systemImage: "bolt.fill")
+                    }
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 56)
+                .background(.ultraThinMaterial)
+                .disabled(viewModel.isLoading)
             }
-//            .onChange(of: viewModel.errorPrompt) { oldValue, newValue in
-//                showingActionSheet = newValue != oldValue
-//            }
-//            .alert("An error has ocurred...", isPresented: $showingActionSheet) {
-//                Button("Continue") { showingActionSheet = false }
-//            } message: {
-//                Text(viewModel.errorPrompt)
-//            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("An error has occurred..."), 
+                      message: Text(viewModel.errorMessage ?? "Unknown error"),
+                      dismissButton: .default(Text("Continue")))
+            }
+            .onReceive(viewModel.$errorMessage) { errorMessage in
+                showAlert = errorMessage != nil
+            }
             .navigationTitle("Compass Test")
         }
+    }
+    
+    var emptyContentView: some View {
+        ContentUnavailableView("Please run requests to see results...", systemImage: "bolt.fill")
+            .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .padding()
+    }
+    
+    var charactersView: some View {
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: [GridItem(.adaptive(minimum: 80))], spacing: 16) {
+                ForEach(viewModel.every10thCharacter, id: \.id) { item in
+                    VStack {
+                        Text("\(item.character)")
+                        
+                        Rectangle()
+                            .frame(height: 1)
+                            .frame(maxWidth: .infinity)
+                            .background(.regularMaterial)
+                        
+                        Text("\(item.indexText)")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                    }
+                    .padding()
+                    .background(.thinMaterial)
+                    .clipShape(Capsule())
+                }
+            }
+        }
+        .frame(height: 200)
+        .safeAreaPadding()
+    }
+    
+    var wordsView: some View {
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: [GridItem(.adaptive(minimum: 90))], spacing: 16) {
+                ForEach(viewModel.wordCounts.sorted(by: { $0.key < $1.key }), id: \.key) { word, count in
+                    VStack {
+                        Text(word)
+                        
+                        Rectangle()
+                            .frame(height: 1)
+                            .frame(maxWidth: .infinity)
+                            .background(.regularMaterial)
+                        
+                        Text("Count: \(count)")
+                            .fontWeight(.bold)
+                    }
+                    .font(.caption)
+                    .padding()
+                    .background(.thinMaterial)
+                    .clipShape(Capsule())
+                }
+            }
+        }
+        .frame(height: 200)
+        .safeAreaPadding()
     }
 }
 

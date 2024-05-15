@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import Combine
+
+struct CharacterWithIndex: Identifiable {
+    let id: Int
+    let character: Character
+    let indexText: String
+}
 
 protocol EveryTenCharacterUseCaseProtocol {
-    func getEveryTenCharacter() async -> [String]
+    func getEveryTenCharacter() -> AnyPublisher<[CharacterWithIndex], Error>
 }
 
 class EveryTenCharacterUseCase: EveryTenCharacterUseCaseProtocol {
@@ -19,16 +26,19 @@ class EveryTenCharacterUseCase: EveryTenCharacterUseCaseProtocol {
         self.repository = repository
     }
     
-    func getEveryTenCharacter() async -> [String] {
-        let response = await repository.getAboutInformation()
-        
-        var result: [String] = []
-        let characters = Array(response)
-        
-        for index in stride(from: 10, to: characters.count, by: 10) {
-            result.append("\(characters[index])")
-        }
-        
-        return result
+    func getEveryTenCharacter() -> AnyPublisher<[CharacterWithIndex], Error> {
+        repository.getAboutInformation()
+            .map { response in
+                var result: [CharacterWithIndex] = []
+                let characters = Array(response)
+                
+                for index in stride(from: 10, to: characters.count, by: 10) {
+                    result.append(CharacterWithIndex(id: index,
+                                                     character: characters[index],
+                                                     indexText: "\(index)th"))
+                }
+                return result
+            }
+            .eraseToAnyPublisher()
     }
 }

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol WordCounterUseCaseProtocol {
-    func getWordCounts() async -> [String: Int]
+    func getWordCounts() -> AnyPublisher<[String: Int], Error>
 }
 
 class WordCounterUseCase: WordCounterUseCaseProtocol {
@@ -19,21 +20,23 @@ class WordCounterUseCase: WordCounterUseCaseProtocol {
         self.repository = repository
     }
     
-    func getWordCounts() async -> [String: Int] {
-        let response = await repository.getAboutInformation()
-        
-        let words: [String] = response
-            .components(separatedBy: CharacterSet.whitespacesAndNewlines)
-            .map { $0.lowercased() }
-        
-        var wordCounts: [String: Int] = [:]
-        
-        for word in words {
-            if !word.isEmpty {
-                wordCounts[word, default: 0] += 1
+    func getWordCounts() -> AnyPublisher<[String: Int], Error> {
+        repository.getAboutInformation()
+            .map { response in
+                let words: [String] = response
+                    .components(separatedBy: CharacterSet.whitespacesAndNewlines)
+                    .map { $0.lowercased() }
+                
+                var wordCounts: [String: Int] = [:]
+                
+                for word in words {
+                    if !word.isEmpty {
+                        wordCounts[word, default: 0] += 1
+                    }
+                }
+                
+                return wordCounts
             }
-        }
-        
-        return wordCounts
+            .eraseToAnyPublisher()
     }
 }
